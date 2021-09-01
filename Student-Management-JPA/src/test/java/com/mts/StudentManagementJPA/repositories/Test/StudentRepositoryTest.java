@@ -104,6 +104,14 @@ class StudentRepositoryTest {
         System.out.println("listStudents = " + students);
     }
 
+    @Test
+    public void testUpdateFirstNameByEmail()
+    {
+        int i=studentRepository.updateFirstNameByEmail("tahirmuri1@gmail.com",
+                "tahir new");
+        System.out.println("i = " + i);
+    }
+
 //    @Test
 //    public void testGetGuardianByEmail()
 //    {
