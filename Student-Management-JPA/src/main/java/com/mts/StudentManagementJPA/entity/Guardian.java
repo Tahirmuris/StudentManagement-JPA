@@ -18,21 +18,21 @@ import javax.persistence.Embeddable;
 
 @AttributeOverrides({
         @AttributeOverride(
-                name = "guardianName",
+                name = "Name",
                 column = @Column(name = "guardian_name")
         ),
         @AttributeOverride(
-                name = "guardianEmail",
+                name = "Email",
                 column = @Column(name = "guardian_email")
         ),
         @AttributeOverride(
-                name = "guardianMobile",
+                name = "Mobile",
                 column = @Column(name = "guardian_mobile")
         )
 })
 public class Guardian {
 
-    private String guardianName;
-    private String guardianEmail;
-    private String guardianMobile;
+    private String Name;
+    private String Email;
+    private String Mobile;
 }

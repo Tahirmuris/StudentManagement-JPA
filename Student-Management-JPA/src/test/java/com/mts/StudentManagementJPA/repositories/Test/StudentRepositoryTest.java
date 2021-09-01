@@ -5,12 +5,9 @@ import com.mts.StudentManagementJPA.entity.Student;
 import com.mts.StudentManagementJPA.repositories.StudentRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest
@@ -35,9 +32,9 @@ class StudentRepositoryTest {
     public void saveStudentWithGuardian(){
 
         Guardian guardian = Guardian.builder()
-                .guardianName("mts")
-                .guardianMobile("12345")
-                .guardianEmail("tahirmuri1@gmail.com")
+                .Name("mts")
+                .Mobile("12345")
+                .Email("tahirmuri2@gmail.com")
                 .build();
         Student student = Student.builder()
                 .email("tahirmuri1@gmail.com")
@@ -57,4 +54,70 @@ class StudentRepositoryTest {
 
         System.out.println("students = "+listStudents);
     }
+
+    @Test
+    public void testFindByFirstname()
+    {
+        List<Student> listStudents = studentRepository.findByFirstName("tahir");
+        System.out.println("listStudents = " + listStudents);
+    }
+
+    @Test
+    public void testFindByFirstNameContaining()
+    {
+        List<Student> listStudents = studentRepository.findByFirstNameContaining("tah");
+        System.out.println("listStudents = " + listStudents);
+    }
+
+//    @Test
+//    public void testFindByGuardianName()
+//    {
+//        List<Student> listStudents = studentRepository.findByGuardianName("mts");
+//        System.out.println("listStudents = " + listStudents);
+//    }
+
+    @Test
+    public void testGetStudentByEmail()
+    {
+        List<Student> listStudents = studentRepository.getStudentByEmail("tahirmuri1@gmail.com");
+        System.out.println("listStudents = " + listStudents);
+    }
+
+    @Test
+    public void testGetStudentFirstNameByEmail()
+    {
+        String firstName = studentRepository.getStudentFirstNameByEmail("tahirmuri1@gmail.com");
+        System.out.println("Student FirstName = " + firstName);
+    }
+
+    @Test
+    public void testGetStudentByEmailNative()
+    {
+        Student students = studentRepository.getStudentByEmailNative("tahirmuri1@gmail.com");
+        System.out.println("listStudents = " + students);
+    }
+
+    @Test
+    public void testGetStudentByEmailNativeParam()
+    {
+        Student students = studentRepository.getStudentByEmailNativeParam("tahirmuri1@gmail.com");
+        System.out.println("listStudents = " + students);
+    }
+
+//    @Test
+//    public void testGetGuardianByEmail()
+//    {
+//        Guardian guardian = studentRepository.getGuardianByEmail("tahirmuri1@gmail.com");
+//        System.out.println("Guardian = " + guardian);
+//    }
+
+//    @Test
+//    public void testGetStudentByEmailAndGuardianName()
+//    {
+//        List<Student> listStudents = studentRepository.getStudentByEmailAndGuardianName("tahirmuri1@gmail.com","mts");
+//        System.out.println("listStudents = " + listStudents);
+//    }
+
+
+
 }
