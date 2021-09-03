@@ -1,0 +1,13 @@
+package com.mts.StudentManagementJPA;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class StudentManagementJpaApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
